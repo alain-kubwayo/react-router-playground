@@ -1,4 +1,5 @@
 import '../services/server';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const VansList = () => {
@@ -26,7 +27,7 @@ const VansList = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-20">
                 {vans?.map(van => (
-                    <div key={van.id}>
+                    <Link to={`/vans/${van.id}`} key={van.id}>
                         <img src={van.imageUrl} alt={van.name} />
                         <div className="flex justify-between">
                             <h3>{van.name}</h3>
@@ -36,7 +37,7 @@ const VansList = () => {
                             </div>
                         </div>
                         <button className="bg-sky-400 px-2 py-1">{van.type}</button>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
