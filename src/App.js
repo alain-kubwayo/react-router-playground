@@ -13,24 +13,23 @@ import Reviews from "./pages/host/Reviews";
 function App() {
   return (
     <div>
-    <BrowserRouter>
-      <Wrapper>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/vans" element={<Vans />} />
-            <Route path="/vans/:id" element={<VanDetail />} />
-            <Route element={<HostLayout />}>
-              <Route path="/host" element={<Dashboard />} />
-              <Route path="/host/income" element={<Income />} />
-              <Route path="/host/reviews" element={<Reviews />} />
+      <BrowserRouter>
+        <Wrapper>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/vans" element={<Vans />} />
+              <Route path="/vans/:id" element={<VanDetail />} />
+              <Route element={<HostLayout />}>
+                <Route path="/host" element={<Dashboard />} />
+                <Route path="/host/income" element={<Income />} />
+                <Route path="/host/reviews" element={<Reviews />} />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
-      </Wrapper>
-    </BrowserRouter>
-    
+          </Routes>
+        </Wrapper>
+      </BrowserRouter>
     </div>
   );
 }
