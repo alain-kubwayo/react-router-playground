@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return ( 
@@ -6,13 +6,22 @@ const Navbar = () => {
           <Link to="/" className="text-4xl font-extrabold uppercase">#VanLife</Link>
           <ul className="flex gap-x-4">
             <li>
-                <Link to="/host">Host</Link>
+                <NavLink 
+                    to="/host"
+                    className={({ isActive }) => isActive ? 'text-sky-600 font-bold' : null}
+                >Host</NavLink>
             </li>
             <li>
-                <Link to="/about">About</Link>
+                <NavLink 
+                    to="/about"
+                    className={({ isActive }) => isActive ? 'text-sky-600 font-bold' : null}
+                >About</NavLink>
             </li>
             <li>
-                <Link to="/vans">Vans</Link>
+                <NavLink 
+                    to="/vans"
+                    className={({ isActive }) => isActive ? 'text-sky-600 font-bold' : null}
+                >Vans</NavLink>
             </li>
           </ul>
         </nav>
