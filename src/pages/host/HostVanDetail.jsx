@@ -18,6 +18,12 @@ const HostVanDetail = () => {
         color: "skyblue",
         fontWeight: 900
     }
+
+    if(!van){
+        return (
+            <div>Loading...</div>
+        )
+    }
     
     return ( 
         <div>
