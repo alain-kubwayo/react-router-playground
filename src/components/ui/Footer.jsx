@@ -1,7 +1,7 @@
 const Footer = () => {
     return (  
-        <footer className="mt-10 py-10 text-center border-t border-sky-200">
-            &copy; {new Date().getFullYear()}
+        <footer className="py-10 mt-10 text-center border-t border-sky-200">
+            &copy; {new Date().getFullYear()} #VANLIFE
         </footer>
     );
 }
