@@ -24,20 +24,25 @@ const VansList = () => {
                     <li className="underline">Clear filters</li>
                 </ul>
             </div>
-            <div className="grid grid-cols-1 gap-20 sm:grid-cols-2">
-                {vans?.map(van => (
-                    <Link to={`/vans/${van.id}`} key={van.id}>
-                        <img src={van.imageUrl} alt={van.name} />
-                        <div className="flex justify-between">
-                            <h3>{van.name}</h3>
-                            <div>
-                                <p>${van.price}</p>
-                                <p>/day</p>
+            <div>
+                { vans.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-20 sm:grid-cols-2">
+                    { vans.map(van => (
+                        <Link to={`/vans/${van.id}`} key={van.id}>
+                            <img src={van.imageUrl} alt={van.name} />
+                            <div className="flex justify-between">
+                                <h3>{van.name}</h3>
+                                <div>
+                                    <p>${van.price}</p>
+                                    <p>/day</p>
+                                </div>
                             </div>
-                        </div>
-                        <button className="px-2 py-1 bg-sky-400">{van.type}</button>
-                    </Link>
-                ))}
+                            <button className="px-2 py-1 bg-sky-400">{van.type}</button>
+                        </Link>
+                    )) }
+                </div>
+                ) : <div>Loading...</div>
+            }
             </div>
         </div>
     );
