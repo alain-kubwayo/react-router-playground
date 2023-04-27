@@ -1,17 +1,31 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const HostNavbar = () => {
+    const activeStyles = {
+        color: 'skyblue',
+        fontWeight: 900
+    }
     return ( 
         <nav className="flex items-center justify-between my-10">
           <ul className="flex gap-x-4">
             <li>
-                <Link to="/host">Dashboard</Link>
+                <NavLink 
+                    to="/host"
+                    end
+                    style={({isActive}) => isActive ? activeStyles : null}
+                >Dashboard</NavLink>
             </li>
             <li>
-                <Link to="/host/income">Income</Link>
+                <NavLink 
+                    to="/host/income"
+                    style={({isActive}) => isActive ? activeStyles : null}
+                >Income</NavLink>
             </li>
             <li>
-                <Link to="/host/reviews">Reviews</Link>
+                <NavLink 
+                    to="/host/reviews"
+                    style={({isActive}) => isActive ? activeStyles : null}
+                >Reviews</NavLink>
             </li>
           </ul>
         </nav>
