@@ -10,26 +10,26 @@ const HostNavbar = () => {
           <ul className="flex gap-x-4">
             <li>
                 <NavLink 
-                    to="/host"
+                    to="."
                     end
                     style={({isActive}) => isActive ? activeStyles : null}
                 >Dashboard</NavLink>
             </li>
             <li>
                 <NavLink 
-                    to="/host/income"
+                    to="income"
                     style={({isActive}) => isActive ? activeStyles : null}
                 >Income</NavLink>
             </li>
             <li>
                 <NavLink 
-                    to="/host/vans"
+                    to="vans"
                     style={({isActive}) => isActive ? activeStyles : null}
                 >Vans</NavLink>
             </li>
             <li>
                 <NavLink 
-                    to="/host/reviews"
+                    to="reviews"
                     style={({isActive}) => isActive ? activeStyles : null}
                 >Reviews</NavLink>
             </li>
