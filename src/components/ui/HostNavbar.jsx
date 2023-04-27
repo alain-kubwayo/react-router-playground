@@ -27,6 +27,12 @@ const HostNavbar = () => {
                     style={({isActive}) => isActive ? activeStyles : null}
                 >Reviews</NavLink>
             </li>
+            <li>
+                <NavLink 
+                    to="/host/vans"
+                    style={({isActive}) => isActive ? activeStyles : null}
+                >Vans</NavLink>
+            </li>
           </ul>
         </nav>
     );
