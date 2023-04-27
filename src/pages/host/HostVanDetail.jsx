@@ -53,7 +53,7 @@ const HostVanDetail = () => {
                     style={({isActive}) => isActive ? activeStyles : null}
                 >Photos</NavLink>
             </div>
-            <Outlet />
+            <Outlet context={{ van }} />
         </div>
     );
 }
