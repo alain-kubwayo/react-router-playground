@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, Link } from "react-router-dom";
 
 const HostVanDetail = () => {
     const [van, setVan] = useState(null);
@@ -16,6 +16,11 @@ const HostVanDetail = () => {
     
     return ( 
         <div>
+            <Link
+                to=".."
+                relative="path"
+                className="inline-flex my-4 font-semibold hover:underline"
+            >&larr; Back to all vans</Link>
             { van && (
             <div className="flex gap-x-10">
                 <div className="w-1/3">
