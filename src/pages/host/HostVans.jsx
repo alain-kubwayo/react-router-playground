@@ -37,7 +37,7 @@ const HostVans = () => {
                                 </Link>
                             ))
                         }
-                    </div>) : <div>This host has no vans listed.</div>
+                    </div>) : <div>Loading...</div>
                 }
             </div>
         </div>
