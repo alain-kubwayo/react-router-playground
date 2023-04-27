@@ -23,15 +23,15 @@ const HostNavbar = () => {
             </li>
             <li>
                 <NavLink 
-                    to="/host/reviews"
-                    style={({isActive}) => isActive ? activeStyles : null}
-                >Reviews</NavLink>
-            </li>
-            <li>
-                <NavLink 
                     to="/host/vans"
                     style={({isActive}) => isActive ? activeStyles : null}
                 >Vans</NavLink>
+            </li>
+            <li>
+                <NavLink 
+                    to="/host/reviews"
+                    style={({isActive}) => isActive ? activeStyles : null}
+                >Reviews</NavLink>
             </li>
           </ul>
         </nav>
