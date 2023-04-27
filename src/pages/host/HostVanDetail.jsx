@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useParams, Link } from "react-router-dom";
+import { NavLink, useParams, Link, Outlet } from "react-router-dom";
 
 const HostVanDetail = () => {
     const [van, setVan] = useState(null);
@@ -13,6 +13,11 @@ const HostVanDetail = () => {
         }
         fetchHostVan();
     }, [])
+
+    const activeStyles = {
+        color: "skyblue",
+        fontWeight: 900
+    }
     
     return ( 
         <div>
@@ -34,10 +39,21 @@ const HostVanDetail = () => {
             </div>
             )}
              <div className="flex gap-x-10">
-                <NavLink to="">Details</NavLink>
-                <NavLink to="">Pricing</NavLink>
-                <NavLink to="">Photos</NavLink>
+                <NavLink 
+                    to="."
+                    end
+                    style={({isActive}) => isActive ? activeStyles : null}
+                >Details</NavLink>
+                <NavLink 
+                    to="pricing"
+                    style={({isActive}) => isActive ? activeStyles : null}
+                >Pricing</NavLink>
+                <NavLink 
+                    to="photos"
+                    style={({isActive}) => isActive ? activeStyles : null}
+                >Photos</NavLink>
             </div>
+            <Outlet />
         </div>
     );
 }
