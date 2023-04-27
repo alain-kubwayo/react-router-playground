@@ -19,7 +19,7 @@ const HostVans = () => {
             <div>
                 {
                     vans.length > 0 ? (
-                    <div class="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-4">
                         {
                             vans.map(van => (
                                 <Link 

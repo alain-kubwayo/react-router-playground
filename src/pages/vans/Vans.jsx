@@ -1,4 +1,3 @@
-import '../../services/server';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -17,7 +16,7 @@ const VansList = () => {
     return ( 
         <div>
             <div className="py-10">
-                <h3 className="font-semibold my-10 text-lg">Explore our van options</h3>
+                <h3 className="my-10 text-lg font-semibold">Explore our van options</h3>
                 <ul className="flex justify-between">
                     <li className="px-2 py-1 bg-orange-200">Simple</li>
                     <li className="px-2 py-1 bg-orange-200">Luxury</li>
@@ -25,7 +24,7 @@ const VansList = () => {
                     <li className="underline">Clear filters</li>
                 </ul>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-20">
+            <div className="grid grid-cols-1 gap-20 sm:grid-cols-2">
                 {vans?.map(van => (
                     <Link to={`/vans/${van.id}`} key={van.id}>
                         <img src={van.imageUrl} alt={van.name} />
@@ -36,7 +35,7 @@ const VansList = () => {
                                 <p>/day</p>
                             </div>
                         </div>
-                        <button className="bg-sky-400 px-2 py-1">{van.type}</button>
+                        <button className="px-2 py-1 bg-sky-400">{van.type}</button>
                     </Link>
                 ))}
             </div>
