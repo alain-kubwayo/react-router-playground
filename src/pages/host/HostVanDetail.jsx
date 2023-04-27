@@ -12,7 +12,7 @@ const HostVanDetail = () => {
             setVan(data.vans);
         }
         fetchHostVan();
-    }, [])
+    }, [id])
 
     const activeStyles = {
         color: "skyblue",

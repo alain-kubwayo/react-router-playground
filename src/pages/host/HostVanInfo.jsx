@@ -7,15 +7,15 @@ const HostVanInfo = () => {
         <section className="my-4 space-y-2">
             <h4>
                 <span className="font-bold">Name</span>: 
-                {van.name}
+                {van?.name}
             </h4>
             <h4>
                 <span className="font-bold">Type</span>: 
-                {van.type}
+                {van?.type}
             </h4>
             <h4>
                 <span className="font-bold">Description</span>: 
-                {van.description}
+                {van?.description}
             </h4>
             <h4>
                 <span className="font-bold">Visibility</span>:

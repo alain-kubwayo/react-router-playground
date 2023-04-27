@@ -6,7 +6,7 @@ const HostVanPhotos = () => {
     return ( 
         <div className="w-96 h-96">
             <img 
-                src={van.imageUrl} 
+                src={van?.imageUrl} 
                 alt="van" 
                 className="w-full h-full" 
             />
