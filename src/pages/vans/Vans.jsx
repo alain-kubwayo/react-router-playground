@@ -1,8 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const VansList = () => {
     const [vans, setVans] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const typeFilter = searchParams.get("type");
+    
+    const displayedVans = typeFilter ? vans.filter(van => van.type.toLowerCase() === typeFilter) : vans;
 
     useEffect(()=>{
         const fetchVans = async () => {
@@ -17,17 +22,17 @@ const VansList = () => {
         <div>
             <div className="py-10">
                 <h3 className="my-10 text-lg font-semibold">Explore our van options</h3>
-                <ul className="flex justify-between">
-                    <li className="px-2 py-1 bg-orange-200">Simple</li>
-                    <li className="px-2 py-1 bg-orange-200">Luxury</li>
-                    <li className="px-2 py-1 bg-orange-200">Rugged</li>
-                    <li className="underline">Clear filters</li>
-                </ul>
+                <div className="flex justify-between">
+                    <button onClick={() => setSearchParams({ type: 'simple' })} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'simple' ? 'bg-sky-900' : ''}`}>Simple</button>
+                    <button onClick={() => setSearchParams({ type: 'luxury' })} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'luxury' ? 'bg-green-700' : ''}`}>Luxury</button>
+                    <button onClick={() => setSearchParams({ type: 'rugged'})} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'rugged' ? 'bg-indigo-600' : ''}`}>Rugged</button>
+                    <button onClick={() => setSearchParams({})} to="." className="underline">Clear filters</button>
+                </div>
             </div>
             <div>
-                { vans.length > 0 ? (
+                { displayedVans.length ? (
                     <div className="grid grid-cols-1 gap-20 sm:grid-cols-2">
-                    { vans.map(van => (
+                    { displayedVans.map(van => (
                         <Link to={`/vans/${van.id}`} key={van.id}>
                             <img src={van.imageUrl} alt={van.name} />
                             <div className="flex justify-between">
