@@ -48,7 +48,7 @@ const VansList = () => {
                 { displayedVans.length ? (
                     <div className="grid grid-cols-1 gap-20 sm:grid-cols-2">
                     { displayedVans.map(van => (
-                        <Link to={`/vans/${van.id}`} key={van.id}>
+                        <Link to={van.id} key={van.id} state={{ search: `?${searchParams.toString()}`, type: typeFilter }}>
                             <img src={van.imageUrl} alt={van.name} />
                             <div className="flex justify-between">
                                 <h3>{van.name}</h3>
