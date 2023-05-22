@@ -23,7 +23,7 @@ const HostVans = () => {
                         {
                             vans.map(van => (
                                 <Link 
-                                    to={`/host/vans/${van.id}`}
+                                    to={van.id}
                                     key={van.id}
                                 >
                                     <div>
