@@ -26,7 +26,6 @@ function App() {
         <Wrapper>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route path="*" element={<NotFound />} />
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="vans" element={<Vans />} />
@@ -42,6 +41,7 @@ function App() {
                   <Route path="photos" element={<HostVanPhotos />}/>
                 </Route>
               </Route>
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
         </Wrapper>

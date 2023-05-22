@@ -1,22 +1,32 @@
 
 import { Link, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { fetchVans } from '../../api';
 
 const VansList = () => {
     const [vans, setVans] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const typeFilter = searchParams.get("type");
     
     const displayedVans = typeFilter ? vans.filter(van => van.type.toLowerCase() === typeFilter) : vans;
 
     useEffect(()=>{
-        const fetchVans = async () => {
-            const response = await fetch('/api/vans');
-            const data = await response.json();
-            setVans(data.vans);
+       const loadVans = async () => {
+        setLoading(true);
+        try {
+            const data = await fetchVans()
+            setVans(data);
+        } catch(err) {
+            console.log(err)
+            setError(err)
+        } finally {  
+            setLoading(false);
         }
-        fetchVans();
+       }
+       loadVans();
     }, [])
 
     const handleFilterChange = (key, value) => {
@@ -29,6 +39,16 @@ const VansList = () => {
             return prevParams;
         })
     }
+
+    if(loading) {
+        return <h2>Loading...</h2>
+    }
+
+    if(error) {
+        return <h2>There was an error: {error.message}</h2>
+    }
+
+    console.log(error);
 
     return ( 
         <div>
@@ -45,7 +65,7 @@ const VansList = () => {
                 </div>
             </div>
             <div>
-                { displayedVans.length ? (
+                { displayedVans?.length ? (
                     <div className="grid grid-cols-1 gap-20 sm:grid-cols-2">
                     { displayedVans.map(van => (
                         <Link to={van.id} key={van.id} state={{ search: `?${searchParams.toString()}`, type: typeFilter }}>
