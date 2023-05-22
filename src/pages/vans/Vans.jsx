@@ -19,15 +19,29 @@ const VansList = () => {
         fetchVans();
     }, [])
 
+    const handleFilterChange = (key, value) => {
+        setSearchParams(prevParams => {
+            if(value === null){
+                prevParams.delete(key);
+            } else {
+                prevParams.set(key, value);
+            }
+            return prevParams;
+        })
+    }
+
     return ( 
         <div>
             <div className="py-10">
                 <h3 className="my-10 text-lg font-semibold">Explore our van options</h3>
                 <div className="flex justify-between">
-                    <button onClick={() => setSearchParams({ type: 'simple' })} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'simple' ? 'bg-sky-900' : ''}`}>Simple</button>
-                    <button onClick={() => setSearchParams({ type: 'luxury' })} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'luxury' ? 'bg-green-700' : ''}`}>Luxury</button>
-                    <button onClick={() => setSearchParams({ type: 'rugged'})} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'rugged' ? 'bg-indigo-600' : ''}`}>Rugged</button>
-                    <button onClick={() => setSearchParams({})} to="." className="underline">Clear filters</button>
+                    <button onClick={() => handleFilterChange('type', 'simple')} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'simple' ? 'bg-sky-900' : ''}`}>Simple</button>
+                    <button onClick={() => handleFilterChange('type', 'luxury')} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'luxury' ? 'bg-green-700' : ''}`}>Luxury</button>
+                    <button onClick={() => handleFilterChange('type', 'rugged')} className={`px-2 py-1 bg-orange-200 ${typeFilter === 'rugged' ? 'bg-indigo-600' : ''}`}>Rugged</button>
+                    { typeFilter && (
+                        <button onClick={() => handleFilterChange('type', null)} to="." className="underline">Clear filters</button>
+                        )
+                    }
                 </div>
             </div>
             <div>
